@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/game
+    username: game
+    password: game3
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  tomcat:
+    max-wait: 20000
+    max-active: 50
+    max-idle: 20
+    min-idle: 15
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        id:
+          new_generator_mappings: false
+
+server:
+  port: 8080
+  error:
+    include-stacktrace: never
+    include-exception: false
+security:
+  jwt:
+    token:
+      secret-key: SDFKsdlkfw3fsw309kjsdljfk342WSDklas
+      expire-length: 300000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 milliseconds
+
+userController:
+  signin: Authenticates user and returns its JWT token.
+  signup: Creates user and returns its JWT token
